@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getGithubUser } from '../../mocks'
+import { getGithubUser } from '../../models'
 
  
 const User = () => {
