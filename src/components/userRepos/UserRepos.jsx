@@ -11,11 +11,13 @@ const UserRepos = () => {
     columns: [
       {
         Header: 'Repo Name',
-        accessor: 'repoName'
+        accessor: 'repoName',
+        sortType: 'basic'
       },
       {
         Header: 'Is private',
-        accessor: 'isPrivate'
+        accessor: 'isPrivate',
+        sortType: 'basic'
       }
     ]
   }]
