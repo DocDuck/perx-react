@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+/* helpers */
 .flex {
   display: flex;
+}
+.flex_col {
+  flex-direction: column;
+}
+.w100 {
+  width: 100%;
 }

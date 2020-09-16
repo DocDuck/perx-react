@@ -1,3 +1,4 @@
+import { Paper } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { getGithubUserOrgs } from '../../models'
 import Table from '../table/Table';
@@ -39,7 +40,7 @@ const UserOrgs = () => {
     <div>
       {Array.isArray(userOrgs) && userOrgs.lenght > 0 ?
        <Table data={userOrgs.map(item => tableOrgsAdapter(item))} columns={columns}/> :
-       'there are no organizations...'
+       <Paper className="empty">there are no organizations...</Paper>
       }
     </div>
   );
