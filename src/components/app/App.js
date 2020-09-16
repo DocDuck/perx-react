@@ -10,8 +10,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         Perx is awesome!
-        <UserOrgs/>
-        <UserRepos/>
+        <div className="flex">
+          <UserOrgs/>
+          <UserRepos/>
+        </div>
       </header>
     </div>
   );

@@ -23,7 +23,7 @@ const UserRepos = () => {
   const tableReposAdapter = (val = {}) => {
     return {
       repoName: val.hasOwnProperty('name') ? val.name : 'no data...',
-      isPrivate: val.hasOwnProperty('private') ? val.private : 'no data...',
+      isPrivate: val.hasOwnProperty('private') ? val.private.toString() : 'no data...',
     }
   }
  
@@ -37,7 +37,7 @@ const UserRepos = () => {
  
   return (
     <div>
-      {userRepos.lenght || true ?
+      {Array.isArray(userRepos) && userRepos.length > 0 ?
        <Table data={userRepos.map(item => tableReposAdapter(item))} columns={columns}/> :
        'there are no repositories...'
       }

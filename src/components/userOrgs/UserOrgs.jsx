@@ -7,11 +7,11 @@ const UserOrgs = () => {
   const [userOrgs, setUserOrgs] = useState([]);
 
   const columns = [{
-    Header: 'User Repositories',
+    Header: 'User Organizations',
     columns: [
       {
-        Header: 'Repo Name',
-        accessor: 'repoName'
+        Header: 'Org Name',
+        accessor: 'orgName'
       },
       {
         Header: 'Is private',
@@ -22,7 +22,7 @@ const UserOrgs = () => {
   
   const tableOrgsAdapter = (val = {}) => {
     return {
-      repoName: val.hasOwnProperty('name') ? val.name : 'no data...',
+      orgName: val.hasOwnProperty('name') ? val.name : 'no data...',
       isPrivate: val.hasOwnProperty('private') ? val.private : 'no data...',
     }
   }
@@ -37,7 +37,7 @@ const UserOrgs = () => {
  
   return (
     <div>
-      {userOrgs.lenght || true ?
+      {Array.isArray(userOrgs) && userOrgs.lenght > 0 ?
        <Table data={userOrgs.map(item => tableOrgsAdapter(item))} columns={columns}/> :
        'there are no organizations...'
       }
