@@ -1,11 +1,9 @@
 import { Paper } from '@material-ui/core';
-import React, { useState, useEffect } from 'react';
-import { getGithubUserRepos } from '../../models'
+import React from 'react';
+import { connect } from 'react-redux'
 import Table from '../table/Table';
  
-const UserRepos = () => {
-  const [hasError, setErrors] = useState(false);
-  const [userRepos, setUserRepos] = useState([]);
+const UserRepos = ({ userRepos }) => {
 
   const columns = [{
     Header: 'User Repositories',
@@ -39,14 +37,6 @@ const UserRepos = () => {
     }
   }
  
-  useEffect(() => {
-    async function fetchData() {
-        const result = await getGithubUserRepos('DocDuck');
-        setUserRepos([].concat(result))
-    }
-    fetchData();
-  }, []);
- 
   return (
     <div>
       {Array.isArray(userRepos) && userRepos.length > 0 ?
@@ -65,4 +55,6 @@ const UserRepos = () => {
   );
 }
 
-export default UserRepos
+const mapStateToProps = ({ userRepos }) => ({ userRepos })
+
+export default connect(mapStateToProps)(UserRepos)

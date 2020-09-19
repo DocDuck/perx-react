@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import './index.css';
-import App from './components/app/App';
-// UI app wrapper
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from './theme';
+import App from './components/app/App'
+// store
+import store from './store'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <Provider store={store}>
       <App />
-    </ThemeProvider>
+    </Provider>    
   </React.StrictMode>,
   document.getElementById('root')
 );

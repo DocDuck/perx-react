@@ -1,23 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import './App.css';
 // components
-import User from '../user/User'
 import UserOrgs from '../userOrgs/UserOrgs.jsx'
 import UserRepos from '../userRepos/UserRepos.jsx'
 import UserInput from '../userInput/UserInput';
 
-function App() {
+function App({isUserOrgsFetched, isUserReposFetched}) {
   return (
     <div className="App">
       <header className="App-header">
         <UserInput/>
         <div className="flex w100">
-          <UserOrgs/>
-          <UserRepos/>
+          {isUserOrgsFetched && <UserOrgs/>}
+          {isUserReposFetched && <UserRepos/>}
         </div>
       </header>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({isUserOrgsFetched, isUserReposFetched}) => ({isUserOrgsFetched, isUserReposFetched})
+
+export default connect(mapStateToProps)(App);
